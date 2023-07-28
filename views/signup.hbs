@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/signin_style.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        {{#if message}}
+            <p>{{message}}</p>
+        {{/if}}
+        <form action="" method="post">
+            <h1>Регистрация</h1>
+            <input type="text" id="name" name="name" placeholder="name">
+            <input type="text" id="login" name="login" placeholder="email">
+            <input type="password" id="password" name="password" placeholder="password">
+            <button id="applyForm">sign up</button>
+        </form>
+    </main>
+</body>
+</html>
