@@ -43,5 +43,9 @@ exports.login = (request, response) => {
 }
 
 exports.cabinet = (request, response) => {
-    response.render("cabinet.hbs", {name: request.body.name, login: request.body.login, password: request.body.password});
+    response.render("cabinet.hbs", {
+        name: request.body.name, 
+        login: request.body.login, 
+        password: request.body.password
+    });
 }
