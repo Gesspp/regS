@@ -15,7 +15,7 @@ exports.addUser = (request, response) => {
                 login,
                 name,
                 password
-            }).then(() => response.redirect("cabinet", {name: name, login: login, password: password}));
+            }).then(() => response.redirect("cabinet"));
         } else {
             response.render("signup.hbs", {message: "такой пользователь уже существует"})
         }
@@ -45,9 +45,13 @@ exports.login = (request, response) => {
 
 exports.cabinet = (request, response) => {
     let user = request.session.user;
-    response.render("cabinet.hbs", {
-        name: user.name, 
-        login: user.login, 
-        password: user.password
-    });
+    if (!user) {
+        response.redirect("signin");
+    } else {
+        response.render("cabinet.hbs", {
+            name: user.name, 
+            login: user.login, 
+            password: user.password
+        });
+    }
 }
