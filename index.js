@@ -4,8 +4,21 @@ const seq = require("sequelize");
 const userRouter = require("./routers/user_router");
 const app = express();
 const urlencodedParser = express.urlencoded({extended: false});
+const session = require("express-session")
+const cookieParser = require("cookie-parser")
 
+app.set('trust proxy', 1) // trust first proxy
 app.set("view engine", "hbs");
+
+app.use(cookieParser("aaa2C44-4D44-WppQ38Siuyiuy"))
+
+app.use(session({
+    secret: 'aaa2C44-4D44-WppQ38Siuyiuy',
+    cookie: {maxAge: 9000},
+    resave: true,
+    saveUninitialized: true
+}))
+
 
 app.use(urlencodedParser);
 

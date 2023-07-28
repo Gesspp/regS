@@ -1,4 +1,5 @@
 // const { Json } = require("sequelize/types/utils");
+const { registerHelper } = require("hbs");
 const { User } = require("../models/user_model");
 
 exports.signup = (request, response) => {
@@ -31,8 +32,8 @@ exports.login = (request, response) => {
     User.findOne({where:{login}}).then(user => {
         if (user) {
             if (user.password === password) {
-                console.log(password);
-                response.redirect("cabinet", {name: request.body.name, login: request.body.login, password: request.body.password})
+                request.session.user = user.get({plain: true});
+                response.redirect("cabinet")
             } else {
                 response.render("signin.hbs", {message: "нееверный пароль"})
             }
@@ -43,9 +44,10 @@ exports.login = (request, response) => {
 }
 
 exports.cabinet = (request, response) => {
+    let user = request.session.user;
     response.render("cabinet.hbs", {
-        name: request.body.name, 
-        login: request.body.login, 
-        password: request.body.password
+        name: user.name, 
+        login: user.login, 
+        password: user.password
     });
 }
