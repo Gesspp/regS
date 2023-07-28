@@ -1,1 +1,1 @@
-console.log("Hello World!");
+settingsButton = document.querySelector("cog-button")

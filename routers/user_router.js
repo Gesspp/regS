@@ -7,5 +7,6 @@ userRouter.post("/signin", controller.login)
 userRouter.get("/signup", controller.signup)
 userRouter.post("/signup", controller.addUser)
 userRouter.use("/cabinet", controller.cabinet)
+userRouter.use("/settings", controller.settings)
 
 exports.userRouter = userRouter;

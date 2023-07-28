@@ -55,3 +55,7 @@ exports.cabinet = (request, response) => {
         });
     }
 }
+
+exports.settings = (request, response) => {
+    response.end("Settings");
+}
