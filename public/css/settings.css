@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+}
+
+.categories {
+    margin-top: 50px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.account-button, .logout-button {
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    text-align: left;
+    background: transparent;
+    border-color: transparent;
+    border-radius: 10px;
+}
+
+.account-button:hover, .logout-button:hover {
+    background: rgba(194, 194, 194, 0.4);
+}
+
+.account-button:focus, .logout-button:focus {
+    background: rgba(165, 165, 165, 0.699);
+    font-size: 16px;
+    font-weight: bold;
+}
