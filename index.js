@@ -24,4 +24,4 @@ app.use("/static", express.static(__dirname + "/public"));
 
 app.use("/users", userRouter.userRouter)
 
-app.listen(3000);
+app.listen(3001);
