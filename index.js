@@ -14,8 +14,6 @@ app.use(cookieParser("aaa2C44-4D44-WppQ38Siuyiuy"))
 
 app.use(session({
     secret: 'aaa2C44-4D44-WppQ38Siuyiuy',
-    cookie: {maxAge: 9000},
-    resave: true,
     saveUninitialized: true
 }))
 

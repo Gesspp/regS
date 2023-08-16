@@ -1,6 +1,7 @@
 // const { Json } = require("sequelize/types/utils");
 const { registerHelper } = require("hbs");
 const { User } = require("../models/user_model");
+const { request } = require("express");
 
 exports.signup = (request, response) => {
     response.render("signup.hbs")
@@ -44,6 +45,7 @@ exports.login = (request, response) => {
 }
 
 exports.cabinet = (request, response) => {
+    console.log(request.session)
     let user = request.session.user;
     if (!user) {
         response.redirect("signin");
@@ -58,4 +60,9 @@ exports.cabinet = (request, response) => {
 
 exports.settings = (request, response) => {
     response.render("settings")
+}
+
+exports.logout = (request, response) => {
+    request.session.user = false;
+    response.redirect("../signin");
 }

@@ -6,7 +6,8 @@ userRouter.get("/signin", controller.signin)
 userRouter.post("/signin", controller.login)
 userRouter.get("/signup", controller.signup)
 userRouter.post("/signup", controller.addUser)
-userRouter.use("/cabinet", controller.cabinet)
-userRouter.use("/settings", controller.settings)
+userRouter.get("/cabinet", controller.cabinet)
+userRouter.get("/settings", controller.settings)
+userRouter.get("/logout", controller.logout)
 
 exports.userRouter = userRouter;
